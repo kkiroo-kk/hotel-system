@@ -1,6 +1,5 @@
 package hotel.system;
 
-
 public class Room {
 
     private int roomNumber;
@@ -9,6 +8,8 @@ public class Room {
     private boolean isAvailable;
     private String roomType;
 
+    //Constructor
+    // Initialize payment details 
     public Room(int roomNumber, int capacity, double pricePerNight, boolean isAvailable, String roomType) {
         this.roomNumber = roomNumber;
         this.capacity = capacity;
@@ -17,17 +18,35 @@ public class Room {
         this.roomType = roomType;
     }
 
-
-
+// Display all room information
     public void displayRoomInfo() {
+        System.out.println("Room Number: " + roomNumber);
+        System.out.println("Capacity: " + capacity);
+        System.out.println("Price Per Night: " + pricePerNight);
+        System.out.println("Available: " + isAvailable);
+        System.out.println("Room Type: " + roomType);
     }
 
+// Check if the room is available
     public void checkAvailability() {
+        if (isAvailable) {
+            System.out.println("Room is available.");
+        } else {
+            System.out.println("Room is not available.");
+        }
     }
 
-    public void updatePrice() {
+// Update the room price
+    public void updatePrice(double newPrice) {
+        if (newPrice > 0) {
+            pricePerNight = newPrice;
+            System.out.println("Room price updated successfully!");
+        } else {
+            System.out.println("Invalid price!");
+        }
     }
 
+    // gets and sets
     public int getRoomNumber() {
         return roomNumber;
     }

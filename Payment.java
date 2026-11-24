@@ -10,15 +10,49 @@ public class Payment {
     private String paymentMethod;
     private boolean isPaid;
 
+    //Constructor
+    // Initialize payment details 
+    public Payment(int paymentId, double amount, String paymentMethod) {
+        this.paymentId = paymentId;
+        this.amount = amount;
+        this.paymentMethod = paymentMethod;
+        this.paymentDate = null;
+        this.isPaid = false;
+    }
+
+// Process the payment
     public void processPayment() {
+        if (!isPaid) {
+            paymentDate = LocalDate.now(); //upload Date
+            isPaid = true;
+
+            System.out.println("Payment processed successfully!");
+        } else {
+            System.out.println("Payment has already been processed.");
+        }
     }
 
-    public void refundPaymen() {
+// Refund the payment
+    public void refundPayment() {
+        if (isPaid) {
+            paymentDate = LocalDate.now();
+            isPaid = false;
+            System.out.println("Payment refunded successfully!");
+        } else {
+            System.out.println("No payment available for refund.");
+        }
     }
 
+// Display payment information
     public void displayPaymentInfo() {
+        System.out.println("Payment ID: " + paymentId);
+        System.out.println("Amount: " + amount);
+        System.out.println("Payment Date: " + paymentDate);
+        System.out.println("Payment Method: " + paymentMethod);
+        System.out.println("Paid: " + isPaid);
     }
 
+    // gets and sets
     public int getPaymentId() {
         return paymentId;
     }
@@ -51,11 +85,11 @@ public class Payment {
         this.paymentMethod = paymentMethod;
     }
 
-    public boolean isIsPaid() {
-        return isPaid;
-    }
+public boolean getisPaid() {
+    return isPaid;
+}
 
-    public void setIsPaid(boolean isPaid) {
+    public void setisPaid(boolean isPaid) {
         this.isPaid = isPaid;
     }
 

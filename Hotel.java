@@ -9,21 +9,55 @@ public class Hotel {
     private ArrayList<Employee> employees;
     private ArrayList<Booking> bookings;
 
-    public void addEmployee() {
-    }
-
+    //Constructor
+// Initialize hotel data
     public Hotel(ArrayList<Room> rooms, ArrayList<Employee> employees, ArrayList<Booking> bookings) {
         this.rooms = rooms;
         this.employees = employees;
         this.bookings = bookings;
     }
 
+    // Add a new employee to the hotel
+    public void addEmployee(Employee employee) {
+        employees.add(employee);
+        System.out.println("Employee added successfully!");
+    }
+
+    // Display general hotel information
     public void displayHotelInfo() {
+        System.out.println("Hotel Name: " + hotelName);
+        System.out.println("Total Rooms: " + rooms.size());
+        System.out.println("Total Employees: " + employees.size());
+        System.out.println("Total Bookings: " + bookings.size());
     }
 
+    // Generate a hotel report
     public void generateReport() {
+
+        int availableRooms = 0;
+        int occupiedRooms = 0;
+
+        // Count available and occupied rooms
+        for (Room room : rooms) {
+
+            if (room.isAvailable()) {
+                availableRooms++;
+            } else {
+                occupiedRooms++;
+            }
+        }
+        // Display hotel report
+        System.out.println("\n===== Hotel Report =====");
+        System.out.println("Hotel Name: " + hotelName);
+        System.out.println("Total Rooms: " + rooms.size());
+        System.out.println("Available Rooms: " + availableRooms);
+        System.out.println("Occupied Rooms: " + occupiedRooms);
+        System.out.println("Total Employees: " + employees.size());
+        System.out.println("Total Bookings: " + bookings.size());
+
     }
 
+    //gets and sets
     public String getHotelName() {
         return hotelName;
     }

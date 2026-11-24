@@ -1,5 +1,6 @@
 package hotel.system;
 
+//ganral ........>الاب 
 //abstract عشان منعملش منو اوبجيكت مباشر 
 public abstract class Person {
 
@@ -8,6 +9,7 @@ public abstract class Person {
     protected String phone;
     protected String email;
 
+    //Constructor
     public Person(int id, String name, String phone, String email) {
         this.id = id;
         this.name = name;
@@ -15,6 +17,11 @@ public abstract class Person {
         this.email = email;
     }
 
+    // Display person information
+    public abstract void displayInfo();
+    
+    
+    //gets and sets
     public int getId() {
         return id;
     }
@@ -47,8 +54,4 @@ public abstract class Person {
         this.email = email;
     }
 
-    public abstract void displayInfo(
-
-    
-    );
 }
